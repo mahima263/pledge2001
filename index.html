@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
 <meta name="theme-color" content="#7d2e22" />
 <title>Class of 2001 · Silver Jubilee Giving · IIT Kanpur</title>
-<meta name="description" content="Class of 2001 Silver Jubilee — make your pledge to IIT Kanpur. ₹1.65 Cr+ raised across batch initiatives." />
+<meta name="description" content="Class of 2001 Silver Jubilee — make your pledge to IIT Kanpur and help the batch reach its ₹2.5 Cr pledge goal." />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,500&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -250,6 +250,7 @@ section{scroll-margin-top:74px}
 .pw-x:hover{background:var(--brick);color:#fff}
 .pw-big{font-family:var(--serif);font-weight:900;font-size:1.9rem;line-height:1;color:var(--ink)}
 .pw-big .pl{color:var(--ochre)}
+.pw-label{font-size:.62rem;font-weight:800;letter-spacing:.11em;text-transform:uppercase;color:var(--muted);margin-bottom:5px}
 /* goal progress bar */
 .pw-goal{margin-top:12px}
 .pw-goalbar{position:relative;height:10px;border-radius:100px;background:rgba(36,26,22,.08);overflow:hidden}
@@ -316,6 +317,7 @@ section{scroll-margin-top:74px}
     </div>
     <div class="links">
       <a data-scroll="home">Home</a>
+      <a data-scroll="goal">Our Goal</a>
       <a data-scroll="initiatives">Class Legacy</a>
       <a data-scroll="faq">FAQs</a>
       <a class="nav-cta" data-pledge>Pledge Now</a>
@@ -344,6 +346,7 @@ section{scroll-margin-top:74px}
   <button class="drawer-close" id="drawerClose" aria-label="Close menu">✕</button>
   <span class="d-label">Class of 2001 · IIT Kanpur</span>
   <a data-scroll="home">Home</a>
+  <a data-scroll="goal">Our Goal</a>
   <a data-scroll="initiatives">Class Legacy</a>
   <a data-scroll="faq">FAQs</a>
   <button class="drawer-cta" data-pledge>Make Your Pledge →</button>
@@ -414,10 +417,10 @@ section{scroll-margin-top:74px}
   </div>
 </section>
 
-<!-- ====== CLASS LEGACY (PAST GIFTS) ====== -->
-<section class="sec" id="initiatives">
+<!-- ====== BATCH GOAL (current reunion) ====== -->
+<section class="sec" id="goal">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>Past Gifts</span><h2>Class <span class="gr">Legacy</span></h2><p>Our utmost gratitude to the Class of 2001 and visionary individuals.</p></div>
+    <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>Silver Jubilee Goal</span><h2>Our batch <span class="gr">goal</span></h2><p>What the Class of 2001 is raising together for the coming reunion.</p></div>
     <!-- PROGRESS CARD: Pledge Goal · Total Alumni · Progress Bar -->
     <div class="legacy-prog">
       <div class="prog reveal d1" id="prog">
@@ -437,6 +440,13 @@ section{scroll-margin-top:74px}
         <a class="btn btn-primary pcbtn" data-pledge>Make Your Pledge</a>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- ====== CLASS LEGACY (PAST GIFTS) ====== -->
+<section class="sec" id="initiatives">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>Past Gifts</span><h2>Class <span class="gr">Legacy</span></h2><p>Our utmost gratitude to the Class of 2001 and visionary individuals.</p></div>
     <div class="init-grid">
       <div class="init reveal d1">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21l2.3-7.1-6-4.5h7.6Z"/></svg></div>
@@ -555,19 +565,16 @@ section{scroll-margin-top:74px}
 </main>
 
 <!-- ====== FLOATING WIDGET ====== -->
-<!-- GOAL PLACEHOLDER: replace ₹2.5 Cr (goal) and 66% below, plus width:66% in CSS (#pwidget.go .pw-goalfill) -->
+<!-- Shows the batch TARGET pledge (₹2.5 Cr). The raised-so-far total lives in the page body, not here. -->
 <div class="pwidget" id="pwidget" aria-live="polite">
   <div class="pw-card">
     <div class="pw-head">
-      <span class="pw-title">🎓 2001 Class Fund</span>
+      <span class="pw-title">🎓 Class of 2001</span>
       <button class="pw-x" id="pwClose" aria-label="Dismiss">✕</button>
     </div>
     <div class="pw-info">
-      <div class="pw-big"><span class="num" data-count="1.65" data-dec="2">₹0.00</span><span class="pl"> Cr+</span></div>
-      <div class="pw-goal">
-        <div class="pw-goalbar"><span class="pw-goalfill"></span></div>
-        <div class="pw-goaltxt"><b>66%</b> of <span class="goal-amt">₹2.5 Cr</span> goal</div>
-      </div>
+      <div class="pw-label">Batch pledge goal</div>
+      <div class="pw-big">₹2.5<span class="pl"> Cr</span></div>
     </div>
     <button class="pw-cta" data-pledge>Make Your Pledge</button>
   </div>
@@ -640,7 +647,7 @@ document.querySelectorAll('#prog').forEach(el=>progIo.observe(el));
 document.getElementById('pwidget').classList.add('go');
 
 // active nav highlight on scroll (desktop nav)
-const secs=['home','pledge','initiatives','faq'].map(id=>document.getElementById(id)).filter(Boolean);
+const secs=['home','pledge','goal','initiatives','faq'].map(id=>document.getElementById(id)).filter(Boolean);
 const navlinks=[...document.querySelectorAll('.nav .links a[data-scroll]')];
 const actIo=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){
   const id=e.target.id;
