@@ -143,12 +143,12 @@ section{scroll-margin-top:74px}
 .pledge .micro{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:15px auto 0;max-width:540px}
 .pledge .micro span{display:inline-flex;align-items:center;gap:6px;font-size:.79rem;font-weight:600;color:#5a4a42;background:#fff;border:1px solid var(--line);border-radius:100px;padding:7px 13px}
 .pledge .micro svg{width:14px;height:14px;color:var(--brick)}
-.form-card{max-width:760px;margin:24px auto 0;background:#fff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
+.form-card{max-width:760px;margin:24px auto 0;background:#ffffff;border:1px solid var(--line);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;display:flex;flex-direction:column}
 .form-card .fbar{display:flex;align-items:center;gap:10px;padding:13px 18px;background:linear-gradient(120deg,var(--brick-deep),var(--brick));color:#fff;flex:none}
 .form-card .fbar .ft{font-weight:800;font-size:.92rem}
 .form-card .fbar .lock{margin-left:auto;display:inline-flex;align-items:center;gap:6px;font-size:.72rem;opacity:.92}
 .form-card .fbar .lock svg{width:14px;height:14px}
-.form-card iframe{display:block;width:100%;border:none;height:740px}
+.form-card iframe{display:block;width:100%;border:none;height:640px}
 .form-card .falt{padding:9px 16px;text-align:center;font-size:.78rem;color:var(--muted);border-top:1px solid var(--line-soft);flex:none}
 .form-card .falt a{color:var(--brick);font-weight:700;text-decoration:underline}
 
@@ -159,6 +159,12 @@ section{scroll-margin-top:74px}
 .sec-head h2 .gr{color:var(--brick)}
 .sec-head p{color:var(--muted);font-size:.96rem}
 .legacy-prog{max-width:760px;margin:0 auto 26px}
+/* Legacy raised-so-far statement (above the past-gift tiles) */
+.legacy-line{text-align:center;max-width:760px;margin:2px auto 28px;font-family:var(--serif);font-weight:500;font-size:clamp(1.08rem,4.4vw,1.5rem);line-height:1.5;color:var(--ink)}
+.legacy-line .ll-amt{position:relative;font-weight:900;white-space:nowrap;color:var(--brick);padding:0 .1em}
+.legacy-line .ll-amt .ll-pl{color:var(--ochre)}
+.legacy-line .ll-amt::before{content:"";position:absolute;left:0;right:0;bottom:.06em;height:.36em;border-radius:5px;background:linear-gradient(90deg,rgba(201,148,58,.34),rgba(201,148,58,.14));z-index:-1;transform:scaleX(0);transform-origin:left;transition:transform .8s .55s cubic-bezier(.2,.8,.2,1)}
+.legacy-line.in .ll-amt::before{transform:scaleX(1)}
 .init-grid{display:grid;grid-template-columns:1fr;gap:14px;max-width:1080px;margin:0 auto}
 .init{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:22px;box-shadow:var(--shadow-sm);transition:transform .3s,box-shadow .3s;display:flex;gap:16px;align-items:flex-start}
 .init:hover{transform:translateY(-4px);box-shadow:var(--shadow)}
@@ -299,7 +305,7 @@ section{scroll-margin-top:74px}
   /* drawer never applies on desktop */
   .drawer,.drawer-overlay{display:none}
 }
-@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.pwidget{transform:none;opacity:1}.bar .segA,.bar .segB,.pw-goalfill{transition:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.pwidget{transform:none;opacity:1}.bar .segA,.bar .segB,.pw-goalfill{transition:none}.legacy-line .ll-amt::before{transform:scaleX(1)}}
 </style>
 </head>
 <body>
@@ -372,10 +378,7 @@ section{scroll-margin-top:74px}
       <div class="cta reveal in d2">
         <a class="btn btn-primary btn-lg" data-pledge>Make Your Pledge →</a>
       </div>
-      <p class="hnote reveal in d2">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg>
-        <span><b>80G</b> tax benefits · Receipt in <b>4–5 days</b> · Change anytime</span>
-      </p>
+    
     </div>
 
     <!-- HERO IMAGE — replace hero-photo.jpg with the shared batch / campus photo -->
@@ -385,7 +388,7 @@ section{scroll-margin-top:74px}
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="5" width="18" height="14" rx="2"/><circle cx="9" cy="10" r="2"/><path d="M3 17l5-5 4 4 3-3 6 6"/></svg>
           <span>Batch / campus photo goes here</span>
         </div>
-        <img src="hero-photo.jpg" alt="Class of 2001 at IIT Kanpur" onerror="this.style.display='none'" />
+        <img src="banner.jpeg" alt="Class of 2001 at IIT Kanpur" onerror="this.style.display='none'" />
         <div class="hv-tag">🎓 Silver Jubilee · Class of 2001</div>
       </div>
     </div>
@@ -421,21 +424,16 @@ section{scroll-margin-top:74px}
 <section class="sec" id="goal">
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>Silver Jubilee Goal</span><h2>Our batch <span class="gr">goal</span></h2><p>What the Class of 2001 is raising together for the coming reunion.</p></div>
-    <!-- PROGRESS CARD: Pledge Goal · Total Alumni · Progress Bar -->
+    <!-- TARGET CARD: the batch's pledge goal for the reunion -->
     <div class="legacy-prog">
       <div class="prog reveal d1" id="prog">
-        <div class="cap">🎓 Class of 2001 has raised</div>
-        <div class="big"><span class="num" data-count="1.65" data-dec="2">₹0.00</span><span class="pl"> Cr+</span></div>
-        <div class="bsub">across all batch initiatives, together</div>
+        <div class="cap">🎯 Our Silver Jubilee target</div>
+        <div class="big">₹2.5<span class="pl"> Cr</span></div>
+        <div class="bsub">the collective pledge goal we're rallying behind</div>
         <div class="stats">
-          <div class="stat"><div class="sl">Pledge Goal</div><div class="sv">₹2.5 Cr</div></div>
           <!-- TODO: replace the Total Alumni figure below with the actual batch number -->
           <div class="stat"><div class="sl">Total Alumni</div><div class="sv">—</div></div>
-        </div>
-        <div class="bar"><span class="segB"></span><span class="segA"></span></div>
-        <div class="legend">
-          <span class="lg"><i class="dot gold"></i>2001 Class Fund · <b>₹56L+</b></span>
-          <span class="lg"><i class="dot brick"></i>Other Initiatives</span>
+          <div class="stat"><div class="sl">Fulfil Over</div><div class="sv">Up to 3 yrs</div></div>
         </div>
         <a class="btn btn-primary pcbtn" data-pledge>Make Your Pledge</a>
       </div>
@@ -447,6 +445,8 @@ section{scroll-margin-top:74px}
 <section class="sec" id="initiatives">
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow"><span class="dot"></span>Past Gifts</span><h2>Class <span class="gr">Legacy</span></h2><p>Our utmost gratitude to the Class of 2001 and visionary individuals.</p></div>
+    <!-- Raised-so-far statement: one animated line above the past-gift tiles -->
+    <p class="legacy-line reveal d1">The Class of 2001 has already given <span class="ll-amt"><span class="num" data-count="1.65" data-dec="2">₹0.00</span><span class="ll-pl"> Cr+</span></span> across all batch initiatives, together.</p>
     <div class="init-grid">
       <div class="init reveal d1">
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.4 7.4H22l-6 4.5 2.3 7.1-6.3-4.6L5.7 21l2.3-7.1-6-4.5h7.6Z"/></svg></div>
@@ -672,11 +672,16 @@ setTimeout(updateWidget,1500);
 addEventListener('scroll',updateWidget);
 addEventListener('resize',updateWidget);
 
-// auto-resize Zoho iframe if it posts height
-window.addEventListener('message',ev=>{
-  if(typeof ev.data==='string'&&ev.data.indexOf('zf_')!==-1){
-    const m=ev.data.match(/(\d{3,5})/);
-    if(m){const h=parseInt(m[1],10);if(h>400&&h<4000)document.getElementById('pledgeForm').style.height=h+'px';}
+// auto-resize the Zoho iframe to its real content height (removes the empty grey strip below the form)
+window.addEventListener('message',function(ev){
+  var data=ev.data;
+  if(typeof data!=='string'||data.indexOf('|')===-1) return;
+  var parts=data.split('|');
+  if(parts.length!==2 && parts.length!==3) return;
+  var perma=parts[0], h=parseInt(parts[1],10);
+  var iframe=document.getElementById('pledgeForm');
+  if(iframe && !isNaN(h) && h>100 && iframe.src.indexOf(perma)>-1){
+    iframe.style.height=(h+15)+'px';
   }
 });
 </script>
