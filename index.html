@@ -306,6 +306,13 @@ section{scroll-margin-top:74px}
   .drawer,.drawer-overlay{display:none}
 }
 @media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}.pwidget{transform:none;opacity:1}.bar .segA,.bar .segB,.pw-goalfill{transition:none}.legacy-line .ll-amt::before{transform:scaleX(1)}}
+
+/* ====== CENTER-ALIGNED: Our batch goal card + floating widget ====== */
+#prog{text-align:center}
+#prog .cap{justify-content:center}
+#prog .stat{text-align:center}
+.pw-label,.pw-big{text-align:center}
+@media(max-width:979px){.pw-info{text-align:center}}
 </style>
 </head>
 <body>
@@ -402,11 +409,6 @@ section{scroll-margin-top:74px}
       <span class="badge">★ Make it official</span>
       <h2>Make your <span class="gr">pledge</span></h2>
       <p class="lede">Two minutes. Pledge an amount, choose how you'd like to fulfil it, and we handle the rest.</p>
-      <div class="micro">
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 8v8M8 12h8"/><circle cx="12" cy="12" r="9"/></svg>Pay over 3 years</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 10h18M3 6h18v12H3z"/></svg>Monthly / Quarterly / Yearly</span>
-        <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12l2 2 4-4"/><circle cx="12" cy="12" r="9"/></svg>Tax Exemption</span>
-      </div>
     </div>
     <div class="form-card reveal d1">
       <div class="fbar">
